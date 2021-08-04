@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  root 'sessions#new'
+
   resources :pictures do
     collection do
       post :confirm
@@ -9,5 +11,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :favorites, only: [:create, :destroy]
   resources :contacts, only: [:new, :create, :show]
-  
+
 end
