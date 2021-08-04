@@ -31,6 +31,8 @@ class PicturesController < ApplicationController
           end
         end
       end
+
+      
   end
 
   def update
