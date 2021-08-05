@@ -13,6 +13,7 @@
 
   <tbody>
     <% @pictures.each do |picture| %>
+    <% if picture.user_id == current_user.id%>
       <tr>
         <td><%= image_tag picture.image.url %></td>
         <td><%= picture.content %></td>
@@ -20,6 +21,13 @@
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% else %>
+      <tr>
+        <td><%= image_tag picture.image.url %></td>
+        <td><%= picture.content %></td>
+        <td><%= link_to 'Show', picture %></td>
+      </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

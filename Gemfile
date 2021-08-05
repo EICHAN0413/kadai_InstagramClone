@@ -16,6 +16,8 @@ gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt'
+gem 'faker'
+gem 'pry-rails'
 
 
 group :development, :test do

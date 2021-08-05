@@ -14,7 +14,12 @@ class PicturesController < ApplicationController
   end
 
   def edit
+    if @picture.user_id != current_user.id
+      render :show, notice: "アクセスできません"
+    else
+    end
   end
+
 
   def create
     @picture = current_user.pictures.build(picture_params)
@@ -23,28 +28,27 @@ class PicturesController < ApplicationController
       else
         respond_to do |format|
           if @picture.save
-            format.html { redirect_to @picture, notice: "Picture was successfully created." }
-            format.json { render :show, status: :created, location: @picture }
+            PictureMailer.send_mail(@picture).deliver
+            format.html { redirect_to pictures_path, notice: "Picture was successfully created." }
+            format.json { render :show, status: :created, location: @picture } 
           else
             format.html { render :new, status: :unprocessable_entity }
             format.json { render json: @picture.errors, status: :unprocessable_entity }
           end
         end
       end
-
-      
   end
 
   def update
     respond_to do |format|
-      if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: "Picture was successfully updated." }
-        format.json { render :show, status: :ok, location: @picture }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+        if @picture.update(picture_params)
+          format.html { redirect_to @picture, notice: "Picture was successfully updated." }
+          format.json { render :show, status: :ok, location: @picture }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @picture.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   def destroy
