@@ -1,37 +1,58 @@
-<p id="notice"><%= notice %></p>
+<body>
+  <div class="post_content">
 
-<h1>Pictures</h1>
+    <div class="side_content">
+     <h1>コンテンツ（準備中）</h1>
+    </div>
+    
+    <div class="content_form">
+      <% @pictures.each do |picture| %>
+      <% if picture.user_id == current_user.id%>
+      <div class ="posted_box">
+        
+        <ul class="posted_content">
+          <li><%= picture.user.name %></li>
+          <li><%= picture.content %></li>
+        </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <ul class="posted_picture">
+          <li><%= image_tag picture.image.url, width: '100%', height: '100%' %></li>
+        </ul>
 
-  <tbody>
-    <% @pictures.each do |picture| %>
-    <% if picture.user_id == current_user.id%>
-      <tr>
-        <td><%= image_tag picture.image.url %></td>
-        <td><%= picture.content %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% else %>
-      <tr>
-        <td><%= image_tag picture.image.url %></td>
-        <td><%= picture.content %></td>
-        <td><%= link_to 'Show', picture %></td>
-      </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+        <ul class="create_form clearfix">
+          <li class="col-md-2"><%= link_to '詳細', picture %></li>
+          <li class="col-md-2"><%= link_to '編集', edit_picture_path(picture) %></li>
+          <li class="col-md-2"><%= link_to '削除', picture, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </div>
 
-<br>
+      <% else %>
+      <div class ="posted_box">
+        
+        <ul class="posted_content">
+          <li><%= picture.user.name %></li>
+          <li><%= picture.content %></li>
+        </ul>
 
-<%= link_to 'New Picture', new_picture_path %>
+        <ul class="posted_picture">
+          <li><%= image_tag picture.image.url, width: '100%', height: '100%' %></li>
+        </ul>
+
+        <ul class="create_form clearfix">
+          <li class="col-md-2"><%= link_to '詳細', picture %></li>
+        </ul>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="all_friends">
+      <h1>友だち一覧（準備中）</h1>
+    </div>
+
+
+
+  </div>
+
+  <footer></footer>
+</body>

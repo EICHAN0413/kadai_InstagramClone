@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy, :update]
   resources :users, only: [:new, :create, :show, :edit, :update]
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:index,:create, :destroy]
   resources :contacts, only: [:new, :create, :show]
 
 end

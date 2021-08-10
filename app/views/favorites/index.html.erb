@@ -1,0 +1,19 @@
+<h1>お気に入り一覧</h1>
+
+<% @favorites.each do |f| %>
+
+<div class ="favorite_form">
+        
+    <ul class="posted_content">
+        <li><%= f.picture.user.name %></li>
+        <li><%= f.picture.content %></li>
+    </ul>
+
+    <ul class="posted_picture">
+        <li><%= image_tag f.picture.image.url, width: '100%', height: '100%' %></li>
+    </ul>
+
+</div>
+
+<% end %>
+

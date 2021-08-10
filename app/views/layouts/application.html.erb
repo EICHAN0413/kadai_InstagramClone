@@ -4,22 +4,51 @@
     <title>InstagramClone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </head>
 
   <body>
+  <header>
+  
+  <div class="logo_content">
+    <div class="logo_field">
+      <%= link_to pictures_path do %><%= image_tag("800px-Instagram_logo.svg.png", width: '50px', height: '35px') %>
+      <% end %>
+    </div>
+  </div>
+    
   <% if logged_in? %>
-    <%= link_to "TOP", pictures_path %>
-    <%= link_to "Profile", user_path(current_user.id) %>
-    <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <%= link_to "contact", new_contact_path %>
-  <% else %>
-    <%= link_to "Sign up", new_user_path %>
-    <%= link_to "Login", new_session_path %>
-    <%= link_to "contact", new_contact_path %>
+  <div class="search_content">
+    <input type="text" class="form-control" placeholder="Search">
+    <button type="submit" class="btn btn-default">検索</button>
+  </div>
   <% end %>
+      
+  <div class="page_content">
+    <% if logged_in? %>
+    <li><%= link_to '投稿する', new_picture_path %></li>
+    <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">メニュー <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "お気に入り一覧", favorites_path %></li>
+        <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+        <li><%= link_to "お問い合わせ", new_contact_path %></li>
+      <% else %>
+        <li><%= link_to "新規登録", new_user_path %></li>
+        <li><%= link_to "ログイン", new_session_path %></li>
+      <% end %>
+      </ul>
+    </li>
+    </div>
+  </header>
+
   <%= yield %>
+
   </body>
 </html>

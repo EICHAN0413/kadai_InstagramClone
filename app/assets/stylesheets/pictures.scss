@@ -1,3 +1,95 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post_content {
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    float: left;
+    padding-top: 50px;
+
+
+}
+
+.content_form {
+    width: 50%;
+    height: 800px;
+    float: left;
+    padding: 20px;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    font-size: 10px;
+    overflow: auto;
+
+}
+
+ul {
+    padding: 0px;
+}
+li {
+    list-style: none;
+}
+.posted_content {
+    height: 35%;
+    width: 100%;
+
+}
+
+.posted_content li {
+    font-size: 15px;
+    padding: 10px;
+
+}
+
+.posted_picture {
+    height: 35%;
+}
+
+.posted_picture li {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.create_form {
+    height: 20%;
+}
+
+.create_form li {
+    float:left;
+    padding: 10px;
+    font-size: 18px;
+
+}
+
+.posted_box {
+    background-color: white;
+}
+
+.clearfix:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.side_content {
+    width: 30%;
+    height: 500px;
+    display: block;
+    float: left;
+
+}
+
+.side_content h1{
+    font-size: 20px;
+}
+
+
+.all_friends h1{
+    font-size: 20px;
+
+}
+
+footer {
+    height: 10px;
+}
