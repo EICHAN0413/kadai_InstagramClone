@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_141816) do
+ActiveRecord::Schema.define(version: 2021_08_11_130509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_141816) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.text "image"
+    t.text "picture"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_141816) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "image"
+    t.text "picture"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
