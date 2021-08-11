@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_130509) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.text "picture"
+    t.text "image_topic"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_130509) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "picture"
+    t.text "image_topic"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

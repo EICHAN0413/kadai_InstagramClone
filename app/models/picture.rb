@@ -4,9 +4,9 @@ class Picture < ApplicationRecord
     has_many :favorites, dependent: :destroy
     has_many :favorite_users, through: :favorites, source: :user
 
-    mount_uploader :picture, PictureUploader
+    mount_uploader :image_topic, ImageTopicUploader
 
     validates :content, presence: true
-    validates :picture, presence: false
+    validates :image_topic, presence: false
 
 end

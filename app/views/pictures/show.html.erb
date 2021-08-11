@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if @picture.image_topic.present? %>
 <p>
   <strong>Image:</strong>
-  <%= image_tag @picture.picture.url %>
+  <%= image_tag @picture.image_topic.url %>
 </p>
+<% end %>
 
 <p>
   <strong>Content:</strong>
